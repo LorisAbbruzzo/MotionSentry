@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.SeekBar
-import android.widget.Switch
+import com.google.android.material.switchmaterial.SwitchMaterial
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +19,7 @@ class SettingsActivity : AppCompatActivity() {
 
         val seekBar = findViewById<SeekBar>(R.id.seekBarSens)
         val tvSens = findViewById<TextView>(R.id.tvSensLabel)
-        val swSilent = findViewById<Switch>(R.id.swSilent)
+        val swSilent = findViewById<SwitchMaterial>(R.id.swSilent)
         val btnSave = findViewById<Button>(R.id.btnSave)
 
         // 1. Load Saved Values (Default: Sens 2.0 (Progress 20), Silent False)
@@ -37,6 +37,7 @@ class SettingsActivity : AppCompatActivity() {
                 updateLabel(tvSens, value)
             }
             override fun onStartTrackingTouch(p0: SeekBar?) {}
+
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
@@ -55,7 +56,7 @@ class SettingsActivity : AppCompatActivity() {
     private fun updateLabel(tv: TextView, value: Float) {
         val desc = when {
             value < 1.5 -> "High Sensitivity (Triggers easily)"
-            value > 3.0 -> "Low Sensitivity (Hard shoves only)"
+            value > 4.0 -> "Low Sensitivity (Hard shoves only)"
             else -> "Medium Sensitivity"
         }
         tv.text = "Threshold: ${value}G\n$desc"

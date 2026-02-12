@@ -145,8 +145,7 @@ class MonitoringActivity : AppCompatActivity(), SensorEventListener {
                 maximizeVolume()
                 startSensors()
 
-                // --- 2. LOCK THE APP (Screen Pinning) ---
-                // This prevents closing the app via Home/Recents
+                // LOCK THE APP (Screen Pinning) ---
                 try {
                     startLockTask()
                 } catch (e: Exception) {

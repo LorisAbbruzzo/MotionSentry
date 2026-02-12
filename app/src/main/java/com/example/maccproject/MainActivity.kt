@@ -159,6 +159,7 @@ class MainActivity : AppCompatActivity() {
             // LOGGED IN
             tvStatus.text = "Welcome, ${user.displayName}\nSystem Ready."
 
+            tvStatus.setTextColor(getColor(R.color.neon_green))
             btnSignIn.visibility = View.GONE
             btnLogout.visibility = View.VISIBLE
             btnShowLogs.visibility = View.VISIBLE
@@ -168,6 +169,7 @@ class MainActivity : AppCompatActivity() {
             // LOGGED OUT
             tvStatus.text = "Status: PLEASE SIGN IN"
 
+            tvStatus.setTextColor(getColor(R.color.neon_red))
             btnSignIn.visibility = View.VISIBLE
             btnLogout.visibility = View.GONE
             btnShowLogs.visibility = View.GONE

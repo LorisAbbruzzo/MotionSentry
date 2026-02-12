@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+<color name="black_background">#050505</color>
+<color name="surface_dark">#1A1A1A</color>
+<color name="neon_red">#FF2A2A</color>
+<color name="neon_red_dim">#441010</color>
+<color name="neon_green">#00FF88</color>
+<color name="text_primary">#FFFFFF</color>
+<color name="text_secondary">#AAAAAA</color>
+<color name="divider">#333333</color>
 </resources>

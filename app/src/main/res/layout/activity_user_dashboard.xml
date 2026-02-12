@@ -3,18 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#121212"
+    android:background="@color/black_background"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Security Log"
-        android:textColor="#FFFFFF"
+        android:text="SECURITY LOGS"
+        android:textColor="@color/text_primary"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.05"
+        android:layout_marginBottom="20dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReports"

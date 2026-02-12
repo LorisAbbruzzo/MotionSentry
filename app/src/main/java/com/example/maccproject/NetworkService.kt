@@ -12,7 +12,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 data class TheftLog(
-    val id: Int,
+    val id: String,
     val timestamp: String,
     val image_url: String,
     val lat: Double,

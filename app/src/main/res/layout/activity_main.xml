@@ -5,97 +5,138 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/black_background"
+    android:padding="24dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MotionSentry"
-        android:textColor="#FFFFFF"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MOTION SENTRY"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp"
+            android:letterSpacing="0.1"
+            android:fontFamily="sans-serif-black"
+            android:layout_gravity="start"/> <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status: SYSTEM DISARMED"
-        android:textColor="#AAAAAA"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <com.example.maccproject.RadarView
-        android:id="@+id/radarView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/tvStatus"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/btnArmSystem"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:text="ARM SYSTEM"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:backgroundTint="#D32F2F"
-        android:layout_margin="30dp"
-        android:enabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:backgroundTint="#555555"
-        android:visibility="gone"
-        android:layout_marginBottom="200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSignIn"
-        app:layout_constraintEnd_toEndOf="@+id/btnSignIn"
-        app:layout_constraintStart_toStartOf="@+id/btnSignIn"
-        />
-
-    <Button
-        android:id="@+id/btnShowLogs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Reports"
-        android:visibility="gone"
-        android:layout_marginBottom="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSignIn"
-        app:layout_constraintEnd_toEndOf="@+id/btnSignIn"
-        app:layout_constraintStart_toStartOf="@+id/btnSignIn" />
+        android:text="SYSTEM DISARMED"
+        android:textColor="@color/neon_green"
+        android:textSize="14sp"
+        android:letterSpacing="0.15"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg_status_pill"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:layout_gravity="start"/> </LinearLayout>
 
     <ImageButton
         android:id="@+id/btnSettings"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:src="@android:drawable/ic_menu_preferences"
-        android:background="#00000000"
-        app:tint="#888888"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/text_secondary"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/radarContainer"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_circle_gradient"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintBottom_toTopOf="@id/controlPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.example.maccproject.RadarView
+            android:id="@+id/radarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_add"
+            android:alpha="0.1"
+            app:tint="@color/neon_green"
+            android:scaleType="center" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/controlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnArmSystem"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="ARM SYSTEM"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            app:backgroundTint="@color/neon_red"
+            app:cornerRadius="8dp"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowLogs"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="SECURITY LOG"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="@color/text_primary"
+                app:strokeColor="@color/divider"
+                app:icon="@android:drawable/ic_menu_agenda"
+                app:iconTint="@color/text_secondary"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="LOGOUT"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="@color/text_primary"
+                app:strokeColor="@color/divider"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

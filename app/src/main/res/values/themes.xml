@@ -1,9 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MaccProject" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.MotionSentry" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/black_background</item>
+        <item name="android:windowBackground">@color/black_background</item>
+        <item name="colorPrimary">@color/neon_red</item>
+        <item name="colorSecondary">@color/neon_green</item>
     </style>
-
-    <style name="Theme.MaccProject" parent="Base.Theme.MaccProject" />
 </resources>

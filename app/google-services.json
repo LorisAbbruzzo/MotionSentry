@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "241573181930",
+    "project_id": "motionsentry-4d195",
+    "storage_bucket": "motionsentry-4d195.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241573181930:android:3449dbe8b788111edf1a93",
+        "android_client_info": {
+          "package_name": "com.example.maccproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241573181930-fti24th4t9c095057ca20bgul3esd97g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.maccproject",
+            "certificate_hash": "10758a145df6205ffc1e3dc8eb6811a7a409ffc0"
+          }
+        },
+        {
+          "client_id": "241573181930-uq5v5hpu9opaf1sq2aa835l1hoeua9lv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD40NuUVvqYgRrUugbftOBZFcrshSvJUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241573181930-uq5v5hpu9opaf1sq2aa835l1hoeua9lv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
