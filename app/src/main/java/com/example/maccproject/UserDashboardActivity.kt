@@ -69,7 +69,7 @@ class UserDashboardActivity : AppCompatActivity() {
                 .load(item.image_url)
                 .into(holder.img)
 
-            // --- ADD THIS: CLICK TO VIEW FULLSCREEN ---
+
             holder.img.setOnClickListener {
                 val intent = Intent(holder.itemView.context, ImageDetailActivity::class.java)
                 intent.putExtra("IMAGE_URL", item.image_url)

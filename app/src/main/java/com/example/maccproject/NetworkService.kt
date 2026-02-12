@@ -19,10 +19,10 @@ data class TheftLog(
     val lon: Double
 )
 interface TheftApi {
-    @Multipart // <--- This tells Retrofit we are sending a file
+    @Multipart
     @POST("api/report")
     suspend fun uploadReport(
-        @Part photo: MultipartBody.Part,       // The actual image file
+        @Part photo: MultipartBody.Part,       //  image file
         @Part("user_email") email: RequestBody, // Text data 1
         @Part("lat") lat: RequestBody,          // Text data 2
         @Part("lon") lon: RequestBody,          // Text data 3
@@ -33,9 +33,9 @@ interface TheftApi {
     suspend fun getReports(@Query("email") email: String): List<TheftLog>
 }
 
-// 2. Create the Singleton (Keep your URL correct!)
+// 2. Create the Singleton
 object NetworkManager {
-    private const val BASE_URL = "https://lorisabbruzzo.pythonanywhere.com/" // <--- Verify this!
+    private const val BASE_URL = "https://lorisabbruzzo.pythonanywhere.com/"
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)

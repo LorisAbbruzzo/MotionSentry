@@ -11,8 +11,7 @@ import android.view.animation.LinearInterpolator
 import kotlin.math.cos
 import kotlin.math.sin
 
-// REQUIREMENT #3: 2D GRAPHICS
-// A custom view that draws a radar animation using standard 2D Canvas APIs.
+
 class RadarView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     // Paint for the green circles
@@ -44,7 +43,7 @@ class RadarView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
         animator.addUpdateListener { animation ->
             rotationAngle = animation.animatedValue as Float
-            // invalidate() forces the system to call onDraw() again -> Redraws the frame
+
             invalidate()
         }
         animator.start()
@@ -58,7 +57,7 @@ class RadarView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         val radius = (Math.min(cx, cy)) - 20f
 
         // 1. Draw Static Concentric Circles
-        canvas.drawCircle(cx, cy, radius, circlePaint)       // Outer ring
+        canvas.drawCircle(cx, cy, radius, circlePaint)
         canvas.drawCircle(cx, cy, radius * 0.75f, circlePaint)
         canvas.drawCircle(cx, cy, radius * 0.5f, circlePaint)
         canvas.drawCircle(cx, cy, radius * 0.25f, circlePaint)
@@ -72,7 +71,7 @@ class RadarView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         canvas.drawLine(cx, cy, endX, endY, linePaint)
     }
 
-    // This function will be called by our Sensor logic later
+
     fun setAlarmState(isDanger: Boolean) {
         if (isDanger != isAlarming) {
             isAlarming = isDanger

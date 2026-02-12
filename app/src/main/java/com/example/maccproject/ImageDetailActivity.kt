@@ -30,15 +30,13 @@ class ImageDetailActivity : AppCompatActivity() {
         val btnDownload = findViewById<Button>(R.id.btnDownload)
         val btnClose = findViewById<ImageButton>(R.id.btnClose)
 
-        // 1. Load the Image
+
         if (imageUrl != null) {
             Glide.with(this).load(imageUrl).into(imageView)
         }
 
-        // 2. Close Button
         btnClose.setOnClickListener { finish() }
 
-        // 3. Download Button Logic
         btnDownload.setOnClickListener {
             val bitmap = (imageView.drawable as? BitmapDrawable)?.bitmap
             if (bitmap != null) {

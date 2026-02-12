@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnArm: Button
     private lateinit var tvStatus: TextView
 
-    // Permissions we need
+    // Permissions
     private val REQUIRED_PERMISSIONS = arrayOf(
         Manifest.permission.CAMERA,
         Manifest.permission.ACCESS_FINE_LOCATION
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         btnArm = findViewById(R.id.btnArmSystem)
         tvStatus = findViewById(R.id.tvStatus)
 
-        // 1. SETUP GOOGLE SIGN IN CLIENT
+        // GOOGLE SIGN IN CLIENT
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         val googleSignInClient = GoogleSignIn.getClient(this, gso)
         val btnSettings = findViewById<ImageButton>(R.id.btnSettings)
-        // --- BUTTON LISTENERS ---
+        // BUTTON LISTENERS
 
         btnSignIn.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         updateUI(auth.currentUser)
     }
 
-    // --- GOOGLE SIGN IN LOGIC ---
+    // GOOGLE SIGN IN LOGIC
 
     private val signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    // --- LOGOUT LOGIC ---
+    // LOGOUT LOGIC
 
     private fun showLogoutConfirmation() {
         AlertDialog.Builder(this)
@@ -136,10 +136,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun performLogout() {
-        // 1. Sign out from Firebase
+        // Sign out from Firebase
         auth.signOut()
 
-        // 2. Sign out from Google Client (so it doesn't auto-login next time)
+        // Sign out from Google Client
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -152,7 +152,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // --- UI UPDATE LOGIC ---
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
@@ -178,7 +177,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // --- PERMISSION LOGIC ---
+    // PERMISSION LOGIC
 
     private fun checkPermissions(): Boolean {
         return REQUIRED_PERMISSIONS.all {

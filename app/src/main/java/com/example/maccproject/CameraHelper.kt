@@ -27,22 +27,17 @@ class CameraHelper(
         cameraProviderFuture.addListener({
             // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-
-            // Set up the capture use case
+            
             imageCapture = ImageCapture.Builder()
                 .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
                 .build()
 
-            // Select the front camera (Selfie of the thief)
-            // If you want rear camera, change to DEFAULT_BACK_CAMERA
             val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
 
             try {
-                // Unbind use cases before rebinding
+
                 cameraProvider.unbindAll()
 
-                // Bind use cases to camera
-                // Note: We are NOT binding a Preview here, so the screen stays black (stealth mode)
                 cameraProvider.bindToLifecycle(
                     lifecycleOwner,
                     cameraSelector,

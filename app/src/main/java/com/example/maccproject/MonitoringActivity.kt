@@ -113,7 +113,7 @@ class MonitoringActivity : AppCompatActivity(), SensorEventListener {
         }
     }
 
-    // --- 1. NEW GPS CHECK ---
+    // NEW GPS CHECK
     private fun checkGpsEnabled(): Boolean {
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val isGpsOn = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
@@ -145,7 +145,7 @@ class MonitoringActivity : AppCompatActivity(), SensorEventListener {
                 maximizeVolume()
                 startSensors()
 
-                // LOCK THE APP (Screen Pinning) ---
+                // LOCK THE APP
                 try {
                     startLockTask()
                 } catch (e: Exception) {
@@ -157,7 +157,7 @@ class MonitoringActivity : AppCompatActivity(), SensorEventListener {
 
     private fun maximizeVolume() {
         try {
-            // Maximize BOTH Music (for MP3) and Alarm streams
+            // Maximize BOTH Music and Alarm streams
             val maxMusic = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxMusic, 0)
         } catch (e: Exception) { e.printStackTrace() }
@@ -250,7 +250,7 @@ class MonitoringActivity : AppCompatActivity(), SensorEventListener {
 
         try {
             if (mediaPlayer == null) {
-                // Ensure the file 'loudalarm' exists in res/raw
+
                 mediaPlayer = MediaPlayer.create(this, R.raw.loudalarm)
                 mediaPlayer?.isLooping = true
             }
